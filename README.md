@@ -1,15 +1,15 @@
 # Cloud Resume Challenge
 
-[View resume site] (https://resume.thronville.link)
+[View resume site](https://resume.thronville.link)
 
 ## Prerequisites:
 
-- Installed [SAM CLI] (https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
+- Installed [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
 - Ran sam init && sam deploy --guided
 
 ## Section 1: AWS Certification
 
-I had obtained AWS SAA & SOA certifications prior to starting the challenge. Highly recommend [Adrian Cantrill] (learn.cantrill.io) and [Neal Davis] (https://www.udemy.com/user/63f4a578-c67a-456b-916c-ddadf73e9a26/) for exam preparation.
+I had obtained AWS SAA & SOA certifications prior to starting the challenge. Highly recommend [Adrian Cantrill](learn.cantrill.io) and [Neal Davis](https://www.udemy.com/user/63f4a578-c67a-456b-916c-ddadf73e9a26/) for exam preparation.
 
 ## Section 2-3: HTML & CSS
 
