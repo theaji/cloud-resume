@@ -114,3 +114,117 @@ Added R53 record
           # The  following HosteZoneId is always used for alias records pointing to CF.
           HostedZoneId: 'Z2FDTNDATAQYW2'
 ```
+
+## Section 7: Javascript
+
+I was able to get this working after a lot of tweaking. Ran into a CORS error at this stage, but was able to resolve that by passing "Access-Control-Allow" HTTP headers.
+
+```
+<script>
+
+fetch("https://YOURAPI.execute-api.us-east-1.amazonaws.com/Prod/put/")
+fetch('https://YOURAPI.execute-api.us-east-1.amazonaws.com/Prod/get/')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('visitorCount').innerText = data['counter']
+</script>
+```
+
+## Section 8: Database
+
+Added below code to SAM template
+
+```
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: cloud-resume-challenge
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: "ID"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "ID"
+          KeyType: "HASH"
+
+```
+
+## Section 9: API
+
+The API was automatically created by SAM
+
+## Section 10: Python
+
+Python was used for the Lambda code. 
+
+Return statement for Get function:
+
+```
+        return {
+            "statusCode": 200,
+            'headers': {
+                        'Access-Control-Allow-Headers': '*',
+                        'Access-Control-Allow-Origin': '*'              
+                        'Access-Control-Allow-Methods': 'GET'
+            },
+            "body": json.dumps({"counter": response['Item'].get('visitors_count'), 
+            }),
+        }
+```
+
+## Section 11-12: Tests & CI/CD
+
+Used temporary credentials with Github actions to validate and build the template
+
+```
+
+name: validate sam and deploy
+on: 
+  push:
+    branches: [ main ]
+
+  
+  
+jobs:
+  test-infra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - uses: aws-actions/setup-sam@v1
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: $({ secrets.ACCESS_ID })
+          aws-secret-access-key: $({ secrets.SECRET_ACCESS_KEY })
+          aws-region: us-east-1
+      - name: SAM Validate
+        run: | 
+          sam validate
+      - name: SAM Build
+        run: | 
+          sam build
+      - name: SAM Deploy
+        run: | 
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
+          
+```
+
+
+## Challenges & Troubleshooting
+
+"Malformed lambda proxy response" error when calling the function from API gateway. I was able to resolve this by importing simplejson instead of json.
+
+Test API Gateway locally:
+
+`sam local start-api // curl http://localhost:3000/`
+
+Test Lambda fucntion locally:
+
+`sam local invoke Function --event /events/event.json`
+
+View Lambda function logs:
+
+`sam logs -n PutFunction --stack-name cloud-resume-challege --tail`
