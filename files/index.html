@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<!-- <link rel="stylesheet" type="text/css"  -->
+<link rel="stylesheet" type="text/css" href="styles.css" media="all" />
+<title>Theo's Resume</title>
+<meta name="description"  content="Built on AWS, provisioned by Lambda Function, API Gateway.">
+
+</head>
+
+<body>
+
+  <div class="parent_container">
+    
+    <div class="upper_container">
+      <div class="name_info">
+        <h1 class="name">Name</h1>
+        <h2 class="title">Cloud Engineer&nbsp;&nbsp;</h2>
+        <h3 class="contact_info">USA&nbsp;&nbsp;|&nbsp;&nbsp;github.com/</h3>
+      </div>
+    </div>
+    
+    
+    <div class="middle_container">
+      <div class="middle_left_container">
+        <div class="projects">
+          <div class="project_header">
+            <h1>Projects</h1>
+          </div>
+          <div class="project_title">
+            <h1 class="project_title">Cloud Resume Challenge <span class='project_date'></span></h1>
+            <h2 class="project_description">Built this static website </h2>
+            <h2 class="project_description">Please see the code in my  <a href="https://github.com" target="_blank">GitHub Repo</a> and feel free to browse my other projects.</h2>
+            <h2 class="project_description">Learn about this projecttarget="_blank">Cloud Resume Challenge</a> Website.</h2>
+          </div>
+        </div>
+        <div class="work_experience">
+          <div class="work_experience_header">
+            <h1>Professional Experience</h1>
+          </div>
+          
+          <div class="work_experience_role">
+            <br />
+            <h1 class="work_title">Position  <span class='company'>|Company </span></h1>
+            <h2 class="work_description">- Role </h2>
+            <h2 class="work_description">-Role</h2>
+            <h2 class="work_description">- Role </h2>
+          </div>
+
+          <div class="work_experience_role">
+            <br />
+            <h1 class="work_title">Systems Analyst <span class='company'>| Company</span></h1>
+            <h2 class="work_description">- Role</h2>
+            <h2 class="work_description">- Role</h2>
+            <h2 class="work_description">- Role</h2>
+          </div>
+          
+          <div class="work_experience_role">
+            <br />
+            <h1 class="work_title">Position <span class='company'>| Company</span></h1>
+            <h2 class="work_description">- Role</h2>
+            <h2 class="work_description">- Role.</h2>
+          </div>
+          
+  
+
+        <div class="education">
+          <div class="education_header">
+            <h1>Education</h1>
+          </div>
+          <div class="education_title">
+            <h1 class="education_title">Bachelor of Science in Information Technology <span class='education_date'>School</span></h1>
+            <h2 class="education_description">- Graduate Jdate</h2>
+          </div>
+        </div>
+
+      </div>
+      <div class="middle_right_container">
+        <div class="skills_section">
+          <div class="skills_header">
+            <h1>Skills</h1>
+          </div>
+          <div class="skills_list">
+            <h1>Git | GitHub</h1>
+            <h1>skills</h1>
+            <h1>skills</h1>
+            <h1>skills</h1>
+          </div>
+        </div>
+        <div data-iframe-width="250" data-iframe-height="250" data-share-badge-id="4bd3290d-6ac5-4a38-82a5-2e43df07d2cc" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+        <div class="counter_text">
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <h1>You are visitor:</h1>
+          <div id="counter">
+            <script>
+              fetch('https://YOURAPI.execute-api.us-east-1.amazonaws.com/')
+              .then(res => res.json())
+              .then(res => {document.getElementById("counter").innerHTML = res.body.count})
+              .then(data => console.log(data));
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
