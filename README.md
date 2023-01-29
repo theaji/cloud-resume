@@ -221,7 +221,7 @@ Test API Gateway locally:
 
 `sam local start-api // curl http://localhost:3000/`
 
-Test Lambda fucntion locally:
+Test Lambda function locally:
 
 `sam local invoke Function --event /events/event.json`
 
