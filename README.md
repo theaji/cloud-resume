@@ -1,7 +1,5 @@
 # Cloud Resume Challenge
 
-[View resume site](https://resume.thronville.link)
-
 ## Architecture
 
 ![cloud-resume](https://user-images.githubusercontent.com/117802776/219258294-95761575-a8c5-4de5-a769-eb4a16bb3fa2.png)
